@@ -4,7 +4,7 @@ import { parse, stringify } from 'yaml';
 
 const base = '/biblio-revol/';
 const siteUrl = 'https://arieuger.github.io/biblio-revol';
-const env = { ...process.env, VITE_BASE_PATH: base, VITE_SITE_URL: siteUrl, VITE_CATALOG_MODE: 'demo' };
+const env = { ...process.env, VITE_BASE_PATH: base, VITE_SITE_URL: siteUrl, VITE_CATALOG_MODE: process.env.VITE_CATALOG_MODE ?? 'static' };
 const result = spawnSync(process.execPath, ['scripts/build.mjs'], { env, stdio: 'inherit' });
 if (result.status !== 0) process.exit(result.status ?? 1);
 const output = 'dist/public';
