@@ -9,10 +9,12 @@ const html = (body, status = 200, headers = {}) => new Response(body, {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    const clientId = env.GITHUB_CLIENT_ID?.trim();
+    const clientSecret = env.GITHUB_CLIENT_SECRET?.trim();
     if (request.method !== 'GET') return new Response('Method not allowed', { status: 405 });
-    if (url.pathname === '/health') return Response.json({ service: 'revolteira-decap-oauth', configured: Boolean(env.GITHUB_CLIENT_ID && env.GITHUB_CLIENT_SECRET && env.ALLOWED_ORIGIN) });
+    if (url.pathname === '/health') return Response.json({ service: 'revolteira-decap-oauth', configured: Boolean(clientId && clientSecret && env.ALLOWED_ORIGIN) });
     if (!['/auth', '/callback'].includes(url.pathname)) return new Response('Not found', { status: 404 });
-    if (!env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET || !env.ALLOWED_ORIGIN) return html('<h1>Falta configurar a aplicación OAuth de GitHub.</h1>', 503);
+    if (!clientId || !clientSecret || !env.ALLOWED_ORIGIN) return html('<h1>Falta configurar a aplicación OAuth de GitHub.</h1>', 503);
     let allowedOrigin;
     try {
       const allowed = new URL(env.ALLOWED_ORIGIN);
@@ -22,7 +24,7 @@ export default {
     const redirectUri = `${url.origin}/callback`;
     if (url.pathname === '/auth') {
       const state = crypto.randomUUID();
-      const query = new URLSearchParams({ client_id: env.GITHUB_CLIENT_ID, redirect_uri: redirectUri, scope: env.GITHUB_SCOPE || 'repo', state });
+      const query = new URLSearchParams({ client_id: clientId, redirect_uri: redirectUri, scope: env.GITHUB_SCOPE || 'repo', state });
       return new Response(null, { status: 302, headers: {
         location: `https://github.com/login/oauth/authorize?${query}`,
         'set-cookie': `${cookieName}=${state}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=600`,
@@ -37,7 +39,7 @@ export default {
     try {
       const response = await fetch('https://github.com/login/oauth/access_token', {
         method: 'POST', headers: { accept: 'application/json', 'content-type': 'application/json' },
-        body: JSON.stringify({ client_id: env.GITHUB_CLIENT_ID, client_secret: env.GITHUB_CLIENT_SECRET, code, redirect_uri: redirectUri }),
+        body: JSON.stringify({ client_id: clientId, client_secret: clientSecret, code, redirect_uri: redirectUri }),
       });
       const result = await response.json();
       if (!response.ok || typeof result.access_token !== 'string') throw new Error('oauth');

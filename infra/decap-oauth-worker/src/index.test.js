@@ -11,6 +11,19 @@ describe('Decap GitHub OAuth', () => {
     expect(response.headers.get('set-cookie')).toContain(location.searchParams.get('state'));
     expect(response.headers.get('set-cookie')).toContain('HttpOnly; Secure; SameSite=Lax');
   });
+  it('trims copied credentials in both authorization and token exchange', async () => {
+    const copied = { ...env, GITHUB_CLIENT_ID: ' test-client \n', GITHUB_CLIENT_SECRET: '\t test-secret \n' };
+    const auth = await worker.fetch(new Request('https://auth.example/auth'), copied);
+    expect(new URL(auth.headers.get('location')).searchParams.get('client_id')).toBe('test-client');
+    const exchange = vi.fn().mockResolvedValue(Response.json({ access_token: 'test-token' }));
+    vi.stubGlobal('fetch', exchange);
+    await worker.fetch(new Request('https://auth.example/callback?code=code&state=expected', { headers: { cookie: '__Host-decap-oauth-state=expected' } }), copied);
+    expect(JSON.parse(exchange.mock.calls[0][1].body)).toMatchObject({ client_id: 'test-client', client_secret: 'test-secret' });
+  });
+  it('rejects whitespace-only credentials', async () => {
+    const response = await worker.fetch(new Request('https://auth.example/auth'), { ...env, GITHUB_CLIENT_ID: '   ' });
+    expect(response.status).toBe(503);
+  });
   it('rejects missing or mismatched state before exchanging a code', async () => {
     const mock = vi.fn(); vi.stubGlobal('fetch', mock);
     const response = await worker.fetch(new Request('https://auth.example/callback?code=code&state=wrong', { headers: { cookie: '__Host-decap-oauth-state=expected' } }), env);
