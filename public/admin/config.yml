@@ -4,11 +4,11 @@ local_backend:
 
 backend:
   name: github
-  repo: USUARIO/REPOSITORIO
+  repo: arieuger/biblio-revol
   branch: main
-  base_url: https://oauth-proxy-REEMPLAZAR.workers.dev
+  base_url: https://revolteira-decap-oauth.antiaroig.workers.dev
   auth_endpoint: auth
-  site_domain: biblioteca-exemplo.pages.dev
+  site_domain: arieuger.github.io
 
 media_folder: "public/images"
 public_folder: "/images"

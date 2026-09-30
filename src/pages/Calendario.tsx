@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/site-path";
 /*
   Calendario.tsx – Revolteira
   ─────────────────────────────────────────────────────────────────────────
@@ -124,7 +125,7 @@ export default function Calendario() {
   useEffect(() => {
     const loadColors = async () => {
       try {
-        const response = await fetch('/settings/calendar.json');
+        const response = await fetch(withBase('/settings/calendar.json'));
         const data = await response.json();
         if (data?.eventColors && Array.isArray(data.eventColors)) {
           setEventColors(data.eventColors);
@@ -233,7 +234,7 @@ export default function Calendario() {
       {/* Header */}
       <section className="relative bg-muted/30 border-b-2 border-border py-12 md:pt-24 md:pb-16">
         <img
-          src="/assets/hedra.png"
+          src={withBase("/assets/hedra.png")}
           alt=""
           className="absolute top-0 left-0 w-full h-auto min-h-[40px] object-cover opacity-80 pointer-events-none"
           aria-hidden="true"

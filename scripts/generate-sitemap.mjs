@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const SITE_URL = 'https://biblioteca-exemplo.example.org';
+const SITE_URL = (process.env.VITE_SITE_URL || 'https://arieuger.github.io/biblio-revol').replace(/\/$/, '');
 const CONTENT_POSTS_DIR = path.resolve('content/posts');
 const PUBLIC_DIR = path.resolve('public');
 

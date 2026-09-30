@@ -1,3 +1,4 @@
+import { withBase } from "./site-path";
 import type { LibraryComposition } from "./library-composition";
 
 const encoder = new TextEncoder();
@@ -122,7 +123,7 @@ function makeZip(entries: Array<{ name: string; data: Uint8Array }>): Blob {
 }
 
 async function bytesForAsset(source: string): Promise<Uint8Array> {
-  const response = await fetch(source);
+  const response = await fetch(withBase(source));
   if (!response.ok) throw new Error(`asset:${source}`);
   return new Uint8Array(await response.arrayBuffer());
 }

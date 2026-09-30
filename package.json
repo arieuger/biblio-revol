@@ -15,7 +15,9 @@
     "deploy:cloudflare": "pnpm build && wrangler deploy",
     "dev:cloudflare": "pnpm build && wrangler dev --local",
     "deploy:biblioteca-api": "wrangler deploy --config wrangler.api.jsonc",
-    "dev:cms": "BIND_HOST=127.0.0.1 decap-server"
+    "dev:cms": "BIND_HOST=127.0.0.1 decap-server",
+    "build:pages": "node scripts/build-pages.mjs",
+    "deploy:cms-auth": "wrangler deploy --config infra/decap-oauth-worker/wrangler.toml"
   },
   "dependencies": {
     "@fullcalendar/core": "^6.1.20",

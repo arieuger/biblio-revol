@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/site-path";
 import { catalogFetch } from "@/lib/catalog-api";
 import SEO from "@/components/SEO";
 import { LibraryCompositionEditor } from "@/components/LibraryCompositionEditor";
@@ -187,7 +188,7 @@ function RecommendationCard({ book, className = "", coverClassName = "" }: { boo
   const title = displayBookTitle(book);
   return <Link href={recommendationBookHref(book)} draggable={false} className={`group flex h-full min-w-0 flex-col items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${className}`} aria-label={`Abrir a ficha de ${title}`}>
     <div className={`aspect-[3/4] w-full shrink-0 max-w-[8.25rem] overflow-hidden border border-border bg-secondary shadow-sm ${coverClassName}`}>
-      {book.portada ? <img src={book.portada} alt={`Portada de ${title}`} loading="lazy" draggable={false} className="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]" /> : <div className="flex h-full items-center justify-center text-muted-foreground"><BookOpen aria-hidden="true" size={26} /></div>}
+      {book.portada ? <img src={withBase(book.portada)} alt={`Portada de ${title}`} loading="lazy" draggable={false} className="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]" /> : <div className="flex h-full items-center justify-center text-muted-foreground"><BookOpen aria-hidden="true" size={26} /></div>}
     </div>
     <span className="mt-2 block w-full shrink-0 max-w-[13rem] line-clamp-2 text-center font-display text-sm font-bold leading-snug text-foreground transition-colors group-hover:text-primary">{title}</span>
   </Link>;
@@ -460,7 +461,7 @@ export function BookCard({ book, onViewCover, mode, shelfCode }: { book: Bibliot
     <article className="group grid grid-cols-[5.75rem_minmax(0,1fr)] gap-4 border-b-2 border-border py-6 sm:grid-cols-[7rem_minmax(0,1fr)] sm:gap-6">
       <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-border bg-secondary shadow-sm">
         {book.portada && !coverUnavailable ? (
-          <button type="button" onClick={() => onViewCover(book)} aria-label={`Ampliar a portada de ${title}`} className="group/cover relative h-full w-full cursor-zoom-in overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"><img src={book.portada} alt={`Portada de ${title}`} loading="lazy" onError={() => setCoverUnavailable(true)} className="h-full w-full object-cover transition-transform duration-200 group-hover/cover:scale-[1.04]" /><span className="absolute inset-0 flex items-center justify-center bg-black/0 text-white transition-colors group-hover/cover:bg-black/15"><ZoomIn aria-hidden="true" size={24} className="opacity-0 drop-shadow-md transition-opacity group-hover/cover:opacity-100" /></span></button>
+          <button type="button" onClick={() => onViewCover(book)} aria-label={`Ampliar a portada de ${title}`} className="group/cover relative h-full w-full cursor-zoom-in overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"><img src={withBase(book.portada)} alt={`Portada de ${title}`} loading="lazy" onError={() => setCoverUnavailable(true)} className="h-full w-full object-cover transition-transform duration-200 group-hover/cover:scale-[1.04]" /><span className="absolute inset-0 flex items-center justify-center bg-black/0 text-white transition-colors group-hover/cover:bg-black/15"><ZoomIn aria-hidden="true" size={24} className="opacity-0 drop-shadow-md transition-opacity group-hover/cover:opacity-100" /></span></button>
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 p-2 text-center text-muted-foreground">
             <BookOpen aria-hidden="true" size={25} />
@@ -796,7 +797,7 @@ export default function Biblioteca() {
     <div className="pb-8 md:pb-12">
       <SEO title="Biblioteca" description="Catálogo consultable da Biblioteca da Revolteira." />
       <section className="relative overflow-hidden border-b-2 border-border bg-muted/30 py-12 md:pb-16 md:pt-24">
-        <img src="/assets/hedra.png" alt="" className="pointer-events-none absolute left-0 top-0 h-auto min-h-[40px] w-full object-cover opacity-80" aria-hidden="true" />
+        <img src={withBase("/assets/hedra.png")} alt="" className="pointer-events-none absolute left-0 top-0 h-auto min-h-[40px] w-full object-cover opacity-80" aria-hidden="true" />
         <div className="container relative z-10">
           <div className="relative">
             <div className="mb-4 flex items-center justify-between gap-3">
@@ -869,7 +870,7 @@ export default function Biblioteca() {
       <Dialog open={!!selectedCover} onOpenChange={open => !open && setSelectedCover(null)}>
         <DialogContent className="flex max-h-[95vh] max-w-[95vw] items-center justify-center border-none bg-transparent p-0 shadow-none">
           <DialogTitle className="sr-only">{selectedCover ? `Portada de ${displayBookTitle(selectedCover)}` : "Portada ampliada"}</DialogTitle>
-          <div className="relative flex h-full w-full items-center justify-center"><button type="button" onClick={() => setSelectedCover(null)} aria-label="Pechar a portada ampliada" className="absolute right-4 top-4 z-50 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"><X size={24} /></button>{selectedCover?.portada && <img src={selectedCover.portada} alt={`Portada de ${displayBookTitle(selectedCover)}`} className="max-h-[90vh] max-w-full rounded-lg object-contain shadow-2xl" />}</div>
+          <div className="relative flex h-full w-full items-center justify-center"><button type="button" onClick={() => setSelectedCover(null)} aria-label="Pechar a portada ampliada" className="absolute right-4 top-4 z-50 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"><X size={24} /></button>{selectedCover?.portada && <img src={withBase(selectedCover.portada)} alt={`Portada de ${displayBookTitle(selectedCover)}`} className="max-h-[90vh] max-w-full rounded-lg object-contain shadow-2xl" />}</div>
         </DialogContent>
       </Dialog>
       <Dialog open={usageOpen} onOpenChange={setUsageOpen}>

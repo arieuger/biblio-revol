@@ -64,7 +64,7 @@ export default defineConfig({
       "@shared": path.resolve(import.meta.dirname, "./shared"),
     },
   },
-  base: "/",
+  base: process.env.VITE_BASE_PATH || "/",
   build: {
     outDir: "dist/public",
     emptyOutDir: true,

@@ -7,8 +7,8 @@ interface SEOProps {
   type?: "website" | "article";
 }
 
-const SITE_URL = "https://biblioteca-exemplo.example.org";
-const DEFAULT_IMAGE = `${SITE_URL}/images/og-miniatura.png`;
+const SITE_URL = (import.meta.env.VITE_SITE_URL || (typeof window !== "undefined" ? window.location.origin : "https://arieuger.github.io") + import.meta.env.BASE_URL).replace(/\/$/, "");
+const DEFAULT_IMAGE = `${SITE_URL}/logo.png`;
 
 export default function SEO({ 
   title, 

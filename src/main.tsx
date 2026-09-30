@@ -1,8 +1,9 @@
+import { Router } from "wouter";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById("root")!).render(<Router base={import.meta.env.BASE_URL.replace(/\/$/, "")}><App /></Router>);
 
 const analyticsEndpoint = import.meta.env.VITE_ANALYTICS_ENDPOINT;
 const analyticsWebsiteId = import.meta.env.VITE_ANALYTICS_WEBSITE_ID;

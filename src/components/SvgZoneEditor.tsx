@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/site-path";
 import { useEffect, useRef, useState, type PointerEvent } from 'react';
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import { parseZoneSvg, svgDataUrl, writeSvgZones, zoneRectangle, type ParsedZoneSvg, type SvgZone } from '@/lib/svg-zones';
@@ -16,7 +17,7 @@ export function SvgZoneEditor({ item, onSave, onClose }: { item: LibraryFurnitur
   const svgRef = useRef<SVGSVGElement>(null);
   useEffect(() => {
     const controller = new AbortController();
-    fetch(item.src, { signal: controller.signal }).then(response => {
+    fetch(withBase(item.src), { signal: controller.signal }).then(response => {
       if (!response.ok) throw new Error('Non se puido cargar o SVG.');
       return response.text();
     }).then(source => {
@@ -64,7 +65,7 @@ export function SvgZoneEditor({ item, onSave, onClose }: { item: LibraryFurnitur
             onPointerMove={event => { const end = point(event); if (start.current && end) setPending(zoneRectangle(start.current, end, parsed.canvas)); }}
             onPointerUp={event => { const end = point(event); if (start.current && end) { const rect = zoneRectangle(start.current, end, parsed.canvas); if (rect.width >= parsed.canvas.width * .005 && rect.height >= parsed.canvas.height * .005) add(rect); } if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId); cancelDraw(); }}
             onPointerCancel={cancelDraw}>
-            <image href={item.src} x={parsed.canvas.x} y={parsed.canvas.y} width={parsed.canvas.width} height={parsed.canvas.height} pointerEvents="none" />
+            <image href={withBase(item.src)} x={parsed.canvas.x} y={parsed.canvas.y} width={parsed.canvas.width} height={parsed.canvas.height} pointerEvents="none" />
             {zones.map(zone => <g key={zone.id} onPointerDown={event => { if (!drawing) { event.stopPropagation(); setSelected(zone.id); } }}>
               <rect x={zone.x} y={zone.y} width={Math.max(0, zone.width)} height={Math.max(0, zone.height)} fill={zone.id === selected ? '#73de9e66' : '#3f44471a'} stroke={zone.id === selected ? '#277347' : '#3f4447'} strokeWidth="2" vectorEffect="non-scaling-stroke" />
               <text x={zone.x + 4} y={zone.y + parsed.canvas.height * .025} fontSize={parsed.canvas.height * .025} fill="#3f4447" pointerEvents="none">{zone.name}</text>

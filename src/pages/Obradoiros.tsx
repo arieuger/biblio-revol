@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/site-path";
 /*
 Design: Brutalismo Digital Suavizado
 - Grid de obradoiros con información detallada
@@ -100,7 +101,7 @@ export default function Obradoiros() {
       {/* Header */}
       <section className="relative bg-muted/30 border-b-2 border-border py-12 md:pt-24 md:pb-16 overflow-hidden">
         <img 
-          src="/assets/hedra.png" 
+          src={withBase("/assets/hedra.png")}
           alt="" 
           className="absolute top-0 left-0 w-full h-auto min-h-[40px] object-cover opacity-80 pointer-events-none"
           aria-hidden="true"
@@ -133,7 +134,7 @@ export default function Obradoiros() {
                     onClick={() => setSelectedImage(obradoiro.image || null)}
                   >
                     <img 
-                      src={obradoiro.image}
+                      src={withBase(obradoiro.image)}
                       alt={obradoiro.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -262,7 +263,7 @@ export default function Obradoiros() {
               <X size={24} />
             </button>
             <img 
-              src={selectedImage || ''} 
+              src={withBase(selectedImage || '')}
               alt="Imaxe ampliada" 
               className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
             />

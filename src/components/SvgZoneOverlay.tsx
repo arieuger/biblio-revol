@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/site-path";
 import { useEffect, useState } from 'react';
 import { parseZoneSvg, type ParsedZoneSvg } from '@/lib/svg-zones';
 
@@ -7,7 +8,7 @@ export function SvgZoneOverlay({ src, isActive, onSelect }: { src: string; isAct
   useEffect(() => {
     const controller = new AbortController();
     setParsed(null);
-    fetch(src, { signal: controller.signal }).then(response => {
+    fetch(withBase(src), { signal: controller.signal }).then(response => {
       if (!response.ok) throw new Error('svg');
       return response.text();
     }).then(source => setParsed(parseZoneSvg(source))).catch(() => undefined);

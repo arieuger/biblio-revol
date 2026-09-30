@@ -65,7 +65,8 @@ function ScrollRestoration() {
 
 
 function Router() {
-  const [location] = useLocation();
+  const [rawLocation] = useLocation();
+  const location = rawLocation.replace(/\/$/, "") || "/";
 
   if (location === "/admin/composicion-biblioteca") {
     return <>

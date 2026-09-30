@@ -1,2 +1,9 @@
-# Proxy OAuth de DecapCMS
-Crear unha OAuth App en GitHub co callback de `GITHUB_REDIRECT_URI`, publicar este Worker e definir como secrets `GITHUB_CLIENT_ID` e `GITHUB_CLIENT_SECRET`. Restrinxir `ALLOWED_ORIGIN` ao dominio Pages. Actualizar despois `base_url` e `auth_endpoint` en `public/admin/config.yml`.
+# OAuth de Revolteira
+
+Worker: https://revolteira-decap-oauth.antiaroig.workers.dev
+
+Callback para a OAuth App de GitHub: https://revolteira-decap-oauth.antiaroig.workers.dev/callback
+
+Configurar `GITHUB_CLIENT_ID` e `GITHUB_CLIENT_SECRET` como secrets en Cloudflare. O dominio autorizado é `https://arieuger.github.io`.
+
+Consulta [a guía de GitHub Pages e CMS](../../docs/GITHUB-PAGES.md).

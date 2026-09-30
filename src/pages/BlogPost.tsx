@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/site-path";
 import { getDecapPost, getDecapPosts } from "@/lib/decap.client";
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
@@ -286,7 +287,7 @@ export default function BlogPost() {
                                           }}
                                         >
                                           <img 
-                                            src={img.src} 
+                                            src={withBase(img.src)}
                                             alt={img.alt || `Imaxe ${index + 1}`} 
                                             className={isMobile ? "w-full h-auto max-h-96 object-contain" : "w-full h-full object-contain"}
                                             style={isMobile ? { maxWidth: '100%', display: 'block' } : {}}

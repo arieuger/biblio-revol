@@ -26,8 +26,8 @@ import { parse as parseYaml } from 'yaml';
 
 // ── Configuración ──────────────────────────────────────────────────────────────
 
-const SITE_URL = 'https://biblioteca-exemplo.example.org';
-const DEFAULT_IMAGE = `${SITE_URL}/images/og-miniatura.png`;
+const SITE_URL = (process.env.VITE_SITE_URL || 'https://arieuger.github.io/biblio-revol').replace(/\/$/, '');
+const DEFAULT_IMAGE = `${SITE_URL}/logo.png`;
 const DIST_DIR = path.resolve('dist/public');
 const CONTENT_POSTS_DIR = path.resolve('content/posts');
 

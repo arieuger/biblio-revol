@@ -1,3 +1,4 @@
+import { withBase } from "./site-path";
 import { EXPLORER_SHELF_CORRESPONDENCES, explorerSvgAreaId, type ExplorerShelfCorrespondence } from "@shared/biblioteca";
 
 export type LibraryBackground = {
@@ -144,8 +145,8 @@ export function cloneLibraryComposition(composition: LibraryComposition): Librar
 /** Loads the committed CMS settings while retaining the approved local composition as a safe fallback. */
 export async function fetchLibraryComposition(): Promise<LibraryComposition> {
   const [compositionResponse, mappingsResponse] = await Promise.all([
-    fetch("/settings/library-composition.json", { cache: "no-cache" }),
-    fetch("/settings/library-shelf-mappings.json", { cache: "no-cache" }),
+    fetch(withBase("/settings/library-composition.json"), { cache: "no-cache" }),
+    fetch(withBase("/settings/library-shelf-mappings.json"), { cache: "no-cache" }),
   ]);
   if (!compositionResponse.ok) throw new Error("library-composition");
   const compositionValue = await compositionResponse.json();

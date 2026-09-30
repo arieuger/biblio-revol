@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/site-path";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -365,7 +366,7 @@ export default function Blog() {
       <SEO title="Blog" description={blogDescription} />
       <section className="relative bg-muted/30 border-b-2 border-border py-12 md:pt-24 md:pb-16 overflow-hidden">
         <img 
-          src="/assets/hedra.png" 
+          src={withBase("/assets/hedra.png")}
           alt="" 
           className="absolute top-0 left-0 w-full h-auto min-h-[40px] object-cover opacity-80 pointer-events-none"
           aria-hidden="true"
@@ -426,7 +427,7 @@ export default function Blog() {
                   <Card className="h-full cursor-pointer gap-0 overflow-hidden border-2 border-border transition-shadow hover:shadow-lg">
                     <div className="aspect-video overflow-hidden border-b-2 border-border bg-muted">
                       <img 
-                        src={post.mainImage || '/images/default-post.png'} 
+                        src={withBase(post.mainImage || '/images/default-post.png')}
                         alt={post.title} 
                         className="w-full h-full object-cover max-w-full" 
                       />

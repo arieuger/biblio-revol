@@ -1,6 +1,6 @@
-name = "REEMPLAZAR-decap-oauth"
+name = "revolteira-decap-oauth"
 main = "src/index.js"
 compatibility_date = "2026-08-13"
 [vars]
-ALLOWED_ORIGIN = "https://biblioteca-exemplo.pages.dev"
-GITHUB_REDIRECT_URI = "https://oauth-proxy-REEMPLAZAR.workers.dev/callback"
+ALLOWED_ORIGIN = "https://arieuger.github.io"
+GITHUB_SCOPE = "repo"

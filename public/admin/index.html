@@ -4,58 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>Content Manager</title>
+  <title>Revolteira — Administración</title>
 </head>
 <body>
   <!-- Cargamos Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script src="preview.js"></script>
   
-  <script>
-    // Escoitamos a mensaxe de éxito do OAuth
-    window.addEventListener('message', function(event) {
-      console.log('Mensaxe recibida do popup:', event.data);
-      
-      let data = event.data;
-      let token = null;
-      
-      // Se a mensaxe é unha cadea (formato estándar de Netlify/Decap)
-      if (typeof data === 'string' && data.startsWith('authorization:github:success:')) {
-        try {
-          const jsonStr = data.replace('authorization:github:success:', '');
-          const parsed = JSON.parse(jsonStr);
-          token = parsed.token;
-        } catch (e) {
-          // Fallback por se non é JSON puro
-          const match = data.match(/"token":"([^"]+)"/);
-          if (match) token = match[1];
-        }
-      } 
-      // Se a mensaxe xa é un obxecto
-      else if (typeof data === 'object' && data.token) {
-        token = data.token;
-      }
 
-      if (token) {
-        console.log('Token de GitHub atopado. Gardando sesión...');
-        
-        const userData = JSON.stringify({
-          backendName: 'github',
-          login: true,
-          token: token
-        });
-
-        // Decap CMS usa estas claves en localStorage
-        localStorage.setItem('decap-cms-user', userData);
-        localStorage.setItem('netlify-cms-user', userData); // Por compatibilidade
-        
-        // Recargamos a páxina para que o CMS colla a sesión
-        // Usamos un pequeno delay para asegurar que o popup tivo tempo de pecharse
-        setTimeout(function() {
-          window.location.reload();
-        }, 500);
-      }
-    }, false);
-  </script>
 </body>
 </html>

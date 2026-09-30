@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/site-path";
 import { LibraryCompositionEditor } from "@/components/LibraryCompositionEditor";
 import { DEFAULT_LIBRARY_COMPOSITION, normalizeLibraryComposition, type LibraryComposition } from "@/lib/library-composition";
 import { useEffect, useState } from "react";
@@ -35,7 +36,7 @@ export default function LibraryCompositionCmsEditor() {
     if (window.parent !== window) window.parent.postMessage({ type: "library-composition:change", composition: compositionOnly }, window.location.origin);
   };
 
-  if (!embeddedInCms) return <main className="flex min-h-screen items-center justify-center bg-background p-6 text-foreground"><section className="max-w-lg border-2 border-primary bg-card p-6 shadow-[6px_6px_0_var(--color-muted)]"><h1 className="font-display text-2xl font-bold">Editor non dispoñible nesta ruta</h1><p className="mt-3 text-sm leading-6 text-muted-foreground">A composición da Biblioteca só se pode editar desde o panel autenticado de DecapCMS.</p><a href="/admin/" className="mt-5 inline-flex rounded-md bg-primary px-4 py-2 text-sm font-bold text-primary-foreground">Ir a DecapCMS</a></section></main>;
+  if (!embeddedInCms) return <main className="flex min-h-screen items-center justify-center bg-background p-6 text-foreground"><section className="max-w-lg border-2 border-primary bg-card p-6 shadow-[6px_6px_0_var(--color-muted)]"><h1 className="font-display text-2xl font-bold">Editor non dispoñible nesta ruta</h1><p className="mt-3 text-sm leading-6 text-muted-foreground">A composición da Biblioteca só se pode editar desde o panel autenticado de DecapCMS.</p><a href={withBase("/admin/")} className="mt-5 inline-flex rounded-md bg-primary px-4 py-2 text-sm font-bold text-primary-foreground">Ir a DecapCMS</a></section></main>;
 
   return <main className="min-h-screen bg-background p-3 text-foreground sm:p-5">
     <div className="mx-auto max-w-7xl">

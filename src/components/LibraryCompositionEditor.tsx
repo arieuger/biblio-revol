@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/site-path";
 import { SvgZoneEditor } from "./SvgZoneEditor";
 import { SvgZoneOverlay } from "./SvgZoneOverlay";
 import {
@@ -364,10 +365,10 @@ export function LibraryCompositionEditor({ composition, onSelectShelf, activeShe
 
 
     <div className="mt-4 overflow-x-auto" aria-label="Recreación interactiva da Biblioteca como plano continuo de dúas paredes">
-      <div ref={stageRef} className={`${stageClassName} ${editing ? "touch-none" : ""}`} style={{ backgroundImage: displayed.background.src ? `url("${displayed.background.src}")` : undefined, backgroundSize: "100% 100%", backgroundPosition: "center bottom", backgroundRepeat: "no-repeat", backgroundColor: "#eef8f2" }} onPointerMove={handlePointerMove} onPointerUp={endDrag} onPointerCancel={endDrag}>
+      <div ref={stageRef} className={`${stageClassName} ${editing ? "touch-none" : ""}`} style={{ backgroundImage: displayed.background.src ? `url("${withBase(displayed.background.src)}")` : undefined, backgroundSize: "100% 100%", backgroundPosition: "center bottom", backgroundRepeat: "no-repeat", backgroundColor: "#eef8f2" }} onPointerMove={handlePointerMove} onPointerUp={endDrag} onPointerCancel={endDrag}>
         {displayed.items.map(item => <div key={item.id} data-explorer-furniture={item.id} className={`absolute origin-bottom drop-shadow-[2px_8px_5px_rgba(17,22,19,0.2)] ${allowEditing && editing ? "cursor-move touch-none" : ""} ${allowEditing && editing && selectedId === item.id ? "outline outline-2 outline-offset-2 outline-primary" : ""}`} style={{ left: `${item.left}%`, top: `${item.top}%`, height: `${item.height}%`, aspectRatio: String(item.aspect), zIndex: item.layer }} onPointerDown={event => handlePointerDown(event, item.id)} onKeyDown={event => { if (allowEditing && editing && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); setSelectedId(item.id); } }} role={allowEditing && editing ? "button" : undefined} tabIndex={allowEditing && editing ? 0 : undefined} aria-label={allowEditing && editing ? `Editar ${item.name}` : item.name}>
-          <object ref={node => { if (node) furnitureObjectsRef.current.set(item.id, node); else furnitureObjectsRef.current.delete(item.id); }} data={item.src} type="image/svg+xml" aria-label={item.name} onLoad={event => { bindNativeShelfInteractions(event, item.id); applyActiveShelfMark(event.currentTarget, item.id); }} className={`block h-full w-full ${editing ? "pointer-events-none" : ""}`}>{item.name}</object>
-          {!editing && <SvgZoneOverlay src={item.src} isActive={id => Boolean(activeShelf && resolveShelfCode(item.id, id) === activeShelf)} onSelect={id => { const shelf = resolveShelfCode(item.id, id); if (shelf) onSelectShelf(shelf); }} />}
+          <object ref={node => { if (node) furnitureObjectsRef.current.set(item.id, node); else furnitureObjectsRef.current.delete(item.id); }} data={withBase(item.src)} type="image/svg+xml" aria-label={item.name} onLoad={event => { bindNativeShelfInteractions(event, item.id); applyActiveShelfMark(event.currentTarget, item.id); }} className={`block h-full w-full ${editing ? "pointer-events-none" : ""}`}>{item.name}</object>
+          {!editing && <SvgZoneOverlay src={withBase(item.src)} isActive={id => Boolean(activeShelf && resolveShelfCode(item.id, id) === activeShelf)} onSelect={id => { const shelf = resolveShelfCode(item.id, id); if (shelf) onSelectShelf(shelf); }} />}
           {allowEditing && editing && <span className="pointer-events-none absolute left-1/2 top-0 max-w-[12rem] -translate-x-1/2 -translate-y-full whitespace-nowrap rounded bg-primary px-1.5 py-0.5 text-[10px] font-bold text-primary-foreground shadow-sm">{item.name}</span>}
         </div>)}
       </div>

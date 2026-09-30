@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/site-path";
 /*
 Design: Brutalismo Digital Suavizado
 - Sección de recursos públicos e privados
@@ -84,7 +85,7 @@ export default function Recursos() {
       {/* Header */}
       <section className="relative bg-muted/30 border-b-2 border-border py-12 md:pt-24 md:pb-16 overflow-hidden">
         <img 
-          src="/assets/hedra.png" 
+          src={withBase("/assets/hedra.png")}
           alt="" 
           className="absolute top-0 left-0 w-full h-auto min-h-[40px] object-cover opacity-80 pointer-events-none"
           aria-hidden="true"

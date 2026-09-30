@@ -1,3 +1,4 @@
+const cmsSiteBase = new URL("../", window.location.href).pathname;
 // CMS Preview Template para Decap CMS
 const PostPreview = createClass({
   render: function() {
@@ -136,7 +137,7 @@ const LibraryCompositionControl = createClass({
       h("p", { style: { margin: "0 0 0.75rem", color: "#4b5563", lineHeight: "1.5" } }, "Edita o fondo e o mobiliario aquí. As correspondencias edítanse na entrada separada Táboa de correspondencias."),
       h("iframe", {
         title: "Editor da composición da Biblioteca",
-        src: "/admin/composicion-biblioteca?embed=1",
+        src: cmsSiteBase + "admin/composicion-biblioteca?embed=1",
         ref: function(frame) { this.frame = frame; }.bind(this),
         onLoad: this.sendComposition,
         style: { display: "block", width: "100%", minHeight: "940px", border: "1px solid #9ca3af", borderRadius: "6px", background: "#fff" }
@@ -159,7 +160,7 @@ const LibraryShelfMappingsControl = createClass({
   },
   render: function() {
     return h("div", { className: this.props.classNameWrapper, style: { position: "relative", left: "calc(50% - 50vw)", width: "100vw", maxWidth: "100vw", boxSizing: "border-box", padding: "0 1rem" } },
-      h("iframe", { title: "Táboa de correspondencias da Biblioteca", src: "/admin/correspondencias-biblioteca?embed=1", ref: function(frame) { this.frame = frame; }.bind(this), onLoad: this.sendMappings, style: { display: "block", width: "100%", minHeight: "760px", border: "1px solid #9ca3af", borderRadius: "6px", background: "#fff" } })
+      h("iframe", { title: "Táboa de correspondencias da Biblioteca", src: cmsSiteBase + "admin/correspondencias-biblioteca?embed=1", ref: function(frame) { this.frame = frame; }.bind(this), onLoad: this.sendMappings, style: { display: "block", width: "100%", minHeight: "760px", border: "1px solid #9ca3af", borderRadius: "6px", background: "#fff" } })
     );
   }
 });

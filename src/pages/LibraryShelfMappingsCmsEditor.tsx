@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/site-path";
 import { EXPLORER_SHELF_CORRESPONDENCES, explorerSvgAreaId, explorerSvgAreaName, type ExplorerShelfCorrespondence } from "@shared/biblioteca";
 import { fetchLibraryComposition } from "@/lib/library-composition";
 import { useEffect, useState } from "react";
@@ -20,7 +21,7 @@ type AreaOption = { id: string; label: string };
 async function discoverSvgAreas(): Promise<AreaOption[]> {
   const composition = await fetchLibraryComposition();
   const groups = await Promise.all(composition.items.map(async (item, index) => {
-    const response = await fetch(item.src);
+    const response = await fetch(withBase(item.src));
     if (!response.ok) throw new Error(`Non se puido cargar ${item.name}.`);
     const document = new DOMParser().parseFromString(await response.text(), "image/svg+xml");
     if (document.querySelector("parsererror")) throw new Error(`SVG non válido: ${item.name}.`);

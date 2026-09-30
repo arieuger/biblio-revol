@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/site-path";
 /*
 Design: Brutalismo Digital Suavizado
 - Grid de talleres con información detallada
@@ -135,7 +136,7 @@ export default function Talleres() {
             <Card key={taller.id} className="border-2 border-border hover:shadow-lg transition-shadow overflow-hidden flex flex-col">
               <div className="relative h-48 overflow-hidden">
                 <img 
-                  src={taller.image}
+                  src={withBase(taller.image)}
                   alt={taller.title}
                   className="w-full h-full object-cover"
                 />
