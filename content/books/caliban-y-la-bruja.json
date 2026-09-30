@@ -1,0 +1,29 @@
+{
+  "title": "Calibán y la bruja",
+  "authors": [
+    "Silvia Federici"
+  ],
+  "publisher": "Traficantes de Sueños",
+  "year": 2010,
+  "isbn": "9788496453517",
+  "language": "Castelán",
+  "cover": "/images/books/caliban-y-la-bruja.png",
+  "categories": [
+    "Feminismos",
+    "Historia"
+  ],
+  "tags": [
+    "capitalismo",
+    "traballo reprodutivo",
+    "caza de bruxas"
+  ],
+  "description": "Análise histórica da relación entre a caza de bruxas, a transición ao capitalismo e a subordinación do traballo reprodutivo das mulleres.",
+  "location": {
+    "shelf": "E1-A1"
+  },
+  "copies": {
+    "total": 2,
+    "available": 1
+  },
+  "featured": true
+}

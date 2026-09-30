@@ -22,20 +22,37 @@ collections:
     extension: "md"
     format: "frontmatter"
     fields:
-      - {label: "Título", name: "title", widget: "string"}
-      - {label: "Data de publicación", name: "publishedAt", widget: "datetime", required: false, format: "YYYY-MM-DDTHH:mm:ssZ"}
+      - { label: "Título", name: "title", widget: "string" }
+      - {
+          label: "Data de publicación",
+          name: "publishedAt",
+          widget: "datetime",
+          required: false,
+          format: "YYYY-MM-DDTHH:mm:ssZ",
+        }
       - label: "Categorías"
         name: "categories"
         widget: "select"
         multiple: true
         required: false
         options:
-          - {label: "Comunicados", value: "comunicados"}
-          - {label: "Programación mensual", value: "programacion-mensual"}
-          - {label: "Actividades", value: "actividades"}
-      - {label: "Imaxe de portada", name: "image", widget: "image", required: false}
-      - {label: "Contido", name: "body", widget: "markdown"}
-      - {label: "Slug (URL)", name: "slug", widget: "string", required: false, hint: "Opcional. Se se deixa baleiro, xerarase automaticamente a partir do título."}
+          - { label: "Comunicados", value: "comunicados" }
+          - { label: "Programación mensual", value: "programacion-mensual" }
+          - { label: "Actividades", value: "actividades" }
+      - {
+          label: "Imaxe de portada",
+          name: "image",
+          widget: "image",
+          required: false,
+        }
+      - { label: "Contido", name: "body", widget: "markdown" }
+      - {
+          label: "Slug (URL)",
+          name: "slug",
+          widget: "string",
+          required: false,
+          hint: "Opcional. Se se deixa baleiro, xerarase automaticamente a partir do título.",
+        }
 
   - name: "workshops"
     label: "Obradoiros"
@@ -45,8 +62,8 @@ collections:
     extension: "md"
     format: "frontmatter"
     fields:
-      - {label: "Título", name: "title", widget: "string"}
-      - {label: "Descrición", name: "description", widget: "text"}
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Descrición", name: "description", widget: "text" }
       - label: "Categoría"
         name: "category"
         widget: "string"
@@ -58,7 +75,32 @@ collections:
         default: "#e5e7eb"
         allow_input: true
         enable_alpha: false
-        presets: ["#ef4444", "#f97316", "#f59e0b", "#eab308", "#84cc16", "#22c55e", "#10b981", "#14b8a6", "#06b6d4", "#0ea5e9", "#3b82f6", "#6366f1", "#8b5cf6", "#a855f7", "#d946ef", "#ec4899", "#f43f5e", "#64748b", "#71717a", "#737373", "#e5e7eb", "#ffffff", "#000000"]
+        presets:
+          [
+            "#ef4444",
+            "#f97316",
+            "#f59e0b",
+            "#eab308",
+            "#84cc16",
+            "#22c55e",
+            "#10b981",
+            "#14b8a6",
+            "#06b6d4",
+            "#0ea5e9",
+            "#3b82f6",
+            "#6366f1",
+            "#8b5cf6",
+            "#a855f7",
+            "#d946ef",
+            "#ec4899",
+            "#f43f5e",
+            "#64748b",
+            "#71717a",
+            "#737373",
+            "#e5e7eb",
+            "#ffffff",
+            "#000000",
+          ]
       - label: "Frecuencia"
         name: "frequency"
         widget: "string"
@@ -69,35 +111,93 @@ collections:
         default: "#ffffff"
         allow_input: true
         enable_alpha: false
-        presets: ["#ef4444", "#f97316", "#f59e0b", "#eab308", "#84cc16", "#22c55e", "#10b981", "#14b8a6", "#0ea5e9", "#3b82f6", "#6366f1", "#8b5cf6", "#a855f7", "#d946ef", "#ec4899", "#f43f5e", "#64748b", "#71717a", "#737373", "#e5e7eb", "#ffffff", "#000000"]
+        presets:
+          [
+            "#ef4444",
+            "#f97316",
+            "#f59e0b",
+            "#eab308",
+            "#84cc16",
+            "#22c55e",
+            "#10b981",
+            "#14b8a6",
+            "#0ea5e9",
+            "#3b82f6",
+            "#6366f1",
+            "#8b5cf6",
+            "#a855f7",
+            "#d946ef",
+            "#ec4899",
+            "#f43f5e",
+            "#64748b",
+            "#71717a",
+            "#737373",
+            "#e5e7eb",
+            "#ffffff",
+            "#000000",
+          ]
       - label: "Horarios"
         name: "schedules"
         widget: "list"
         summary: "{{fields.day}} - {{fields.time}}"
         fields:
-          - {label: "Día(s)", name: "day", widget: "string", hint: "Ex: Luns e martes, Mércores, Todos os días"}
-          - {label: "Hora(s)", name: "time", widget: "string", hint: "Ex: 20:00, 11:00 - 13:00 e 17:00 - 19:00"}
-      - {label: "Imaxe", name: "image", widget: "image", required: false}
+          - {
+              label: "Día(s)",
+              name: "day",
+              widget: "string",
+              hint: "Ex: Luns e martes, Mércores, Todos os días",
+            }
+          - {
+              label: "Hora(s)",
+              name: "time",
+              widget: "string",
+              hint: "Ex: 20:00, 11:00 - 13:00 e 17:00 - 19:00",
+            }
+      - { label: "Imaxe", name: "image", widget: "image", required: false }
       - label: "Contacto (Opcional)"
         name: "contact"
         widget: "object"
         required: false
         fields:
-          - {label: "Texto/Enlace de contacto", name: "text", widget: "markdown", required: false, hint: "Podes poñer un número, email ou enlace a Instagram/WhatsApp"}
+          - {
+              label: "Texto/Enlace de contacto",
+              name: "text",
+              widget: "markdown",
+              required: false,
+              hint: "Podes poñer un número, email ou enlace a Instagram/WhatsApp",
+            }
           - label: "Icona de contacto"
             name: "icon"
             widget: "select"
             required: false
             options:
-              - {label: "📞 Teléfono", value: "phone"}
-              - {label: "💬 WhatsApp", value: "message-circle"}
-              - {label: "📸 Instagram", value: "instagram"}
-              - {label: "✉️ Email", value: "mail"}
-              - {label: "🔗 Enlace", value: "link"}
-              - {label: "ℹ️ Info", value: "info"}
-      - {label: "CONTIDO EXTRA (OPCIONAL)", name: "body", widget: "markdown", required: false, hint: "Se escribes algo aquí, aparecerá un botón de 'Saber máis'"}
-      - {label: "Slug (URL)", name: "slug", widget: "string", required: false, hint: "Opcional. Se se deixa baleiro, xerarase automaticamente a partir do título."}
-      - {label: "Arquivado", name: "archived", widget: "boolean", default: false, hint: "Se se marca, o obradoiro non será visible na web pero permanecerá accesible en DecapCMS."}
+              - { label: "📞 Teléfono", value: "phone" }
+              - { label: "💬 WhatsApp", value: "message-circle" }
+              - { label: "📸 Instagram", value: "instagram" }
+              - { label: "✉️ Email", value: "mail" }
+              - { label: "🔗 Enlace", value: "link" }
+              - { label: "ℹ️ Info", value: "info" }
+      - {
+          label: "CONTIDO EXTRA (OPCIONAL)",
+          name: "body",
+          widget: "markdown",
+          required: false,
+          hint: "Se escribes algo aquí, aparecerá un botón de 'Saber máis'",
+        }
+      - {
+          label: "Slug (URL)",
+          name: "slug",
+          widget: "string",
+          required: false,
+          hint: "Opcional. Se se deixa baleiro, xerarase automaticamente a partir do título.",
+        }
+      - {
+          label: "Arquivado",
+          name: "archived",
+          widget: "boolean",
+          default: false,
+          hint: "Se se marca, o obradoiro non será visible na web pero permanecerá accesible en DecapCMS.",
+        }
 
   - name: "resources"
     label: "Recursos"
@@ -107,39 +207,68 @@ collections:
     extension: "md"
     format: "frontmatter"
     fields:
-      - {label: "Título", name: "title", widget: "string"}
-      - {label: "Descrición", name: "description", widget: "text"}
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Descrición", name: "description", widget: "text" }
 
       - label: "Icona"
         name: "icon"
         widget: "select"
         options:
-          - {label: "📄 Documento", value: "FileText"}
-          - {label: "📖 Libro/Guía", value: "BookOpen"}
-          - {label: "🎬 Vídeo", value: "Video"}
-          - {label: "📁 Cartafol", value: "FolderOpen"}
-          - {label: "🔗 Ligazón", value: "Link"}
-          - {label: "🍁 Logo/Hedra", value: "Leaf"}
-          - {label: "🍲 Receitas/Comida", value: "Soup"}
-          - {label: "🎙 Podcast/Micro", value: "Mic"}
-          - {label: "👥 Poñentes/Xente", value: "Users"}
-          - {label: "🏛️ Estatutos/Landmark", value: "Landmark"}
-          - {label: "🐷 Tesourería/PiggyBank", value: "PiggyBank"}
-          - {label: "🧮 Calculadora", value: "Calculator"}
-          - {label: "❤️ Corazón", value: "Heart"}
-          - {label: "🏠 Casa", value: "House"}
-          - {label: "📈 Gráfica/Liña", value: "ChartLine"}
-      - {label: "URL / Ficheiro Principal", name: "url", widget: "string", required: false, hint: "Pode ser unha URL externa ou o camiño a un ficheiro subido. Se engades ligazóns abaixo, esta URL ignorarase."}
+          - { label: "📄 Documento", value: "FileText" }
+          - { label: "📖 Libro/Guía", value: "BookOpen" }
+          - { label: "🎬 Vídeo", value: "Video" }
+          - { label: "📁 Cartafol", value: "FolderOpen" }
+          - { label: "🔗 Ligazón", value: "Link" }
+          - { label: "🍁 Logo/Hedra", value: "Leaf" }
+          - { label: "🍲 Receitas/Comida", value: "Soup" }
+          - { label: "🎙 Podcast/Micro", value: "Mic" }
+          - { label: "👥 Poñentes/Xente", value: "Users" }
+          - { label: "🏛️ Estatutos/Landmark", value: "Landmark" }
+          - { label: "🐷 Tesourería/PiggyBank", value: "PiggyBank" }
+          - { label: "🧮 Calculadora", value: "Calculator" }
+          - { label: "❤️ Corazón", value: "Heart" }
+          - { label: "🏠 Casa", value: "House" }
+          - { label: "📈 Gráfica/Liña", value: "ChartLine" }
+      - {
+          label: "URL / Ficheiro Principal",
+          name: "url",
+          widget: "string",
+          required: false,
+          hint: "Pode ser unha URL externa ou o camiño a un ficheiro subido. Se engades ligazóns abaixo, esta URL ignorarase.",
+        }
       - label: "Ligazóns Adicionais"
         name: "links"
         widget: "list"
         required: false
         fields:
-          - {label: "Texto do Botón", name: "label", widget: "string", required: false, hint: "Ex: Con texto, Sen texto. Se se deixa baleiro, porá 'Acceder'"}
-          - {label: "URL / Ficheiro", name: "url", widget: "string"}
-          - {label: "Subtexto (Opcional)", name: "subtext", widget: "string", required: false, hint: "Texto pequeno debaixo do botón"}
-      - {label: "É privado? (Só socios/as)", name: "isPrivate", widget: "boolean", default: false}
-      - {label: "Slug (URL)", name: "slug", widget: "string", required: false, hint: "Opcional. Se se deixa baleiro, xerarase automaticamente a partir do título."}
+          - {
+              label: "Texto do Botón",
+              name: "label",
+              widget: "string",
+              required: false,
+              hint: "Ex: Con texto, Sen texto. Se se deixa baleiro, porá 'Acceder'",
+            }
+          - { label: "URL / Ficheiro", name: "url", widget: "string" }
+          - {
+              label: "Subtexto (Opcional)",
+              name: "subtext",
+              widget: "string",
+              required: false,
+              hint: "Texto pequeno debaixo do botón",
+            }
+      - {
+          label: "É privado? (Só socios/as)",
+          name: "isPrivate",
+          widget: "boolean",
+          default: false,
+        }
+      - {
+          label: "Slug (URL)",
+          name: "slug",
+          widget: "string",
+          required: false,
+          hint: "Opcional. Se se deixa baleiro, xerarase automaticamente a partir do título.",
+        }
 
   - name: "calendar"
     label: "Calendario"
@@ -156,23 +285,138 @@ collections:
             widget: "list"
             summary: "{{fields.title}}: {{fields.color}}"
             fields:
-              - {label: "Texto a Buscar", name: "title", widget: "string", hint: "Palabra ou frase a buscar no título ou descrición do evento"}
+              - {
+                  label: "Texto a Buscar",
+                  name: "title",
+                  widget: "string",
+                  hint: "Palabra ou frase a buscar no título ou descrición do evento",
+                }
               - label: "Buscar en"
                 name: "searchIn"
                 widget: "select"
                 default: "both"
                 options:
-                  - {label: "Título e Descrición", value: "both"}
-                  - {label: "Solo Título", value: "title"}
-                  - {label: "Solo Descrición", value: "description"}
+                  - { label: "Título e Descrición", value: "both" }
+                  - { label: "Solo Título", value: "title" }
+                  - { label: "Solo Descrición", value: "description" }
               - label: "Tipo de Coincidencia"
                 name: "matchType"
                 widget: "select"
                 default: "contains"
                 options:
-                  - {label: "Contén (parcial)", value: "contains"}
-                  - {label: "Coincidencia Exacta", value: "exact"}
-              - {label: "Cor", name: "color", widget: "color", default: "#064e3b"}
+                  - { label: "Contén (parcial)", value: "contains" }
+                  - { label: "Coincidencia Exacta", value: "exact" }
+              - {
+                  label: "Cor",
+                  name: "color",
+                  widget: "color",
+                  default: "#064e3b",
+                }
+
+  - name: "books"
+    label: "Catálogo"
+    label_singular: "Libro"
+    folder: "content/books"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    identifier_field: "title"
+    summary: "{{title}} — {{authors}}"
+
+    media_folder: "/public/images/books"
+    public_folder: "/images/books"
+
+    fields:
+      - label: "Título"
+        name: "title"
+        widget: "string"
+
+      - label: "Autoría"
+        name: "authors"
+        widget: "list"
+        field:
+          label: "Autor/a"
+          name: "author"
+          widget: "string"
+
+      - label: "Editorial"
+        name: "publisher"
+        widget: "string"
+        required: false
+
+      - label: "Ano"
+        name: "year"
+        widget: "number"
+        required: false
+        value_type: "int"
+
+      - label: "ISBN"
+        name: "isbn"
+        widget: "string"
+        required: false
+
+      - label: "Idioma"
+        name: "language"
+        widget: "string"
+        required: false
+
+      - label: "Portada"
+        name: "cover"
+        widget: "image"
+        required: false
+
+      - label: "Temáticas"
+        name: "categories"
+        widget: "list"
+        required: false
+
+      - label: "Etiquetas"
+        name: "tags"
+        widget: "list"
+        required: false
+
+      - label: "Sinopse"
+        name: "description"
+        widget: "text"
+        required: false
+
+      - label: "Localización"
+        name: "location"
+        widget: "object"
+        fields:
+          - label: "Andel"
+            name: "shelf"
+            widget: "select"
+            options:
+              - { label: "E1-A1", value: "E1-A1" }
+              - { label: "E1-A2", value: "E1-A2" }
+              - { label: "E1-A3", value: "E1-A3" }
+              - { label: "E1-A4", value: "E1-A4" }
+              - { label: "E2", value: "E2" }
+
+      - label: "Exemplares"
+        name: "copies"
+        widget: "object"
+        fields:
+          - label: "Exemplares totais"
+            name: "total"
+            widget: "number"
+            value_type: "int"
+            default: 1
+            min: 0
+
+          - label: "Exemplares dispoñibles"
+            name: "available"
+            widget: "number"
+            value_type: "int"
+            default: 1
+            min: 0
+
+      - label: "Recomendado"
+        name: "featured"
+        widget: "boolean"
+        default: false
 
   - name: "library-composition"
     label: "Composición da Biblioteca"

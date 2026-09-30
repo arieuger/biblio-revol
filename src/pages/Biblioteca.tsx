@@ -200,6 +200,7 @@ export function ExplorerSidePanel({ recommendations = [], loading = false, title
   const mainListRef = useRef<HTMLDivElement>(null);
   const draggingRef = useRef({ pointerId: -1, startY: 0, startScrollTop: 0, moved: false });
   const loopItems = useMemo(() => recommendationLoopItems(recommendations), [recommendations]);
+  const shouldLoopRecommendations = recommendations.length >= 4;
 
   const loopAtBoundary = (element: HTMLDivElement) => {
     const beforeHeight = beforeBufferRef.current?.offsetHeight ?? 0;
@@ -218,6 +219,7 @@ export function ExplorerSidePanel({ recommendations = [], loading = false, title
   };
 
   useEffect(() => {
+    if (!shouldLoopRecommendations) return;
     const element = scrollRef.current;
     const beforeHeight = beforeBufferRef.current?.offsetHeight ?? 0;
     if (element && beforeHeight > 0) element.scrollTop = beforeHeight;

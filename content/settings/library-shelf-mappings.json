@@ -1,12 +1,24 @@
 {
   "shelfMappings": [
     {
-      "spreadsheetTerm": "Historia",
+      "spreadsheetTerm": "E1-A1",
       "svgArea": "zona-295c5e1c-6924-48a6-a2f6-d7411ee5eba8"
     },
     {
-      "spreadsheetTerm": "Narrativa",
+      "spreadsheetTerm": "E1-A2",
       "svgArea": "zona-7fbaf4a4-7ba6-4e5c-aa4e-3d3cbcfe6b5e"
+    },
+    {
+      "spreadsheetTerm": "E1-A3",
+      "svgArea": "zona-d8ec235e-8d07-4d46-bb38-aea8eca03bdd"
+    },
+    {
+      "spreadsheetTerm": "E1-A4",
+      "svgArea": "zona-4ba07df5-0a55-4044-913f-0bb9fc1c468a"
+    },
+    {
+      "spreadsheetTerm": "E2",
+      "svgArea": "zona-82afe998-7379-4d63-8de5-f2e6ad5dd863"
     }
   ]
 }
