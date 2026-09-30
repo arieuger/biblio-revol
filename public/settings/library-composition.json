@@ -1,0 +1,10 @@
+{
+  "composition": {
+    "version": 1,
+    "background": {
+      "src": "",
+      "assetFile": "escenario-dos-paredes.svg"
+    },
+    "items": []
+  }
+}

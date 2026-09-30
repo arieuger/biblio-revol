@@ -1,0 +1,13 @@
+import { Link } from "wouter";
+import { ArrowUpRight, BookOpen, Search, LibraryBig } from "lucide-react";
+import SEO from "@/components/SEO";
+import { demoMode } from "@/lib/catalog-api";
+export default function Home() {
+  return <div><SEO title="Biblioteca comunitaria" description="Revolteira: un lugar para descubrir libros e compartir lecturas." />
+    <section className="container py-16 md:py-28 grid md:grid-cols-2 gap-16 items-center">
+      <div><p className="uppercase tracking-[0.25em] text-sm font-semibold text-primary mb-6">Biblioteca comunitaria</p><h1 className="font-display text-5xl md:text-7xl font-bold leading-tight">As ideas tamén<br />se comparten.</h1><p className="text-xl text-muted-foreground my-8 max-w-lg leading-relaxed">Benvida a Revolteira. Un espazo para descubrir outras miradas, atopar a túa próxima lectura e facer comunidade.</p><Link href="/biblioteca?modo=catalogo" className="inline-flex items-center gap-4 bg-primary text-primary-foreground px-7 py-4 rounded-md font-semibold">Explorar o catálogo <ArrowUpRight aria-hidden="true" /></Link></div>
+      <div aria-hidden="true" className="bg-muted rounded-xl border-2 border-border p-8 md:p-12"><p className="font-display text-2xl mb-10">Un mundo por abrir.</p><div className="flex items-end gap-3 h-64 border-b-8 border-primary pb-1">{["LECTURAS", "MEMORIA", "COMUNIDADE", "IMAXINACIÓN"].map((label,i)=><div key={label} style={{height: `${72+i*8}%`}} className={`flex-1 rounded-t-md flex items-center justify-center ${i%2 ? "bg-accent text-accent-foreground" : "bg-primary text-primary-foreground"}`}><span className="[writing-mode:vertical-rl] tracking-widest text-xs font-bold">{label}</span></div>)}</div></div>
+    </section>
+    <section className="container pb-16"><h2 className="font-display text-3xl font-bold mb-8">A túa biblioteca, máis preto</h2><div className="grid md:grid-cols-3 gap-6">{[{Icon:Search,title:"Atopa a túa lectura",text:"Busca por título ou autoría e filtra por idioma, formato e temática."},{Icon:BookOpen,title:"Coñece cada exemplar",text:"Consulta a sinopse, os datos da edición e a súa dispoñibilidade."},{Icon:LibraryBig,title:"Localiza os libros",text:"Cada ficha indica o andel correspondente dentro da biblioteca."}].map(({Icon,title,text})=><article key={title} className="border-2 border-border rounded-lg p-7"><Icon className="text-primary mb-6" aria-hidden="true"/><h3 className="font-display text-xl font-bold mb-3">{title}</h3><p className="text-muted-foreground leading-relaxed">{text}</p></article>)}</div>{demoMode && <p className="mt-8 text-sm text-muted-foreground">Este catálogo permite probar a biblioteca antes de conectar a folla de cálculo real.</p>}</section>
+  </div>;
+}

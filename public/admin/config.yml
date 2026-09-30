@@ -1,0 +1,200 @@
+# Edición local mediante pnpm dev:cms. Solo localhost / 127.0.0.1.
+local_backend:
+  url: http://127.0.0.1:8081/api/v1
+
+backend:
+  name: github
+  repo: USUARIO/REPOSITORIO
+  branch: main
+  base_url: https://oauth-proxy-REEMPLAZAR.workers.dev
+  auth_endpoint: auth
+  site_domain: biblioteca-exemplo.pages.dev
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "posts"
+    label: "Posts do Blog"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Data de publicación", name: "publishedAt", widget: "datetime", required: false, format: "YYYY-MM-DDTHH:mm:ssZ"}
+      - label: "Categorías"
+        name: "categories"
+        widget: "select"
+        multiple: true
+        required: false
+        options:
+          - {label: "Comunicados", value: "comunicados"}
+          - {label: "Programación mensual", value: "programacion-mensual"}
+          - {label: "Actividades", value: "actividades"}
+      - {label: "Imaxe de portada", name: "image", widget: "image", required: false}
+      - {label: "Contido", name: "body", widget: "markdown"}
+      - {label: "Slug (URL)", name: "slug", widget: "string", required: false, hint: "Opcional. Se se deixa baleiro, xerarase automaticamente a partir do título."}
+
+  - name: "workshops"
+    label: "Obradoiros"
+    folder: "content/workshops"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Descrición", name: "description", widget: "text"}
+      - label: "Categoría"
+        name: "category"
+        widget: "string"
+        required: false
+        hint: "Podes deixalo en branco ou escribir o que queiras (ex: Arte, Formación...)"
+      - label: "Cor da Categoría"
+        name: "categoryColor"
+        widget: "color"
+        default: "#e5e7eb"
+        allow_input: true
+        enable_alpha: false
+        presets: ["#ef4444", "#f97316", "#f59e0b", "#eab308", "#84cc16", "#22c55e", "#10b981", "#14b8a6", "#06b6d4", "#0ea5e9", "#3b82f6", "#6366f1", "#8b5cf6", "#a855f7", "#d946ef", "#ec4899", "#f43f5e", "#64748b", "#71717a", "#737373", "#e5e7eb", "#ffffff", "#000000"]
+      - label: "Frecuencia"
+        name: "frequency"
+        widget: "string"
+        hint: "Suxestións: Puntual, Semanal, Mensual"
+      - label: "Cor da Frecuencia"
+        name: "frequencyColor"
+        widget: "color"
+        default: "#ffffff"
+        allow_input: true
+        enable_alpha: false
+        presets: ["#ef4444", "#f97316", "#f59e0b", "#eab308", "#84cc16", "#22c55e", "#10b981", "#14b8a6", "#0ea5e9", "#3b82f6", "#6366f1", "#8b5cf6", "#a855f7", "#d946ef", "#ec4899", "#f43f5e", "#64748b", "#71717a", "#737373", "#e5e7eb", "#ffffff", "#000000"]
+      - label: "Horarios"
+        name: "schedules"
+        widget: "list"
+        summary: "{{fields.day}} - {{fields.time}}"
+        fields:
+          - {label: "Día(s)", name: "day", widget: "string", hint: "Ex: Luns e martes, Mércores, Todos os días"}
+          - {label: "Hora(s)", name: "time", widget: "string", hint: "Ex: 20:00, 11:00 - 13:00 e 17:00 - 19:00"}
+      - {label: "Imaxe", name: "image", widget: "image", required: false}
+      - label: "Contacto (Opcional)"
+        name: "contact"
+        widget: "object"
+        required: false
+        fields:
+          - {label: "Texto/Enlace de contacto", name: "text", widget: "markdown", required: false, hint: "Podes poñer un número, email ou enlace a Instagram/WhatsApp"}
+          - label: "Icona de contacto"
+            name: "icon"
+            widget: "select"
+            required: false
+            options:
+              - {label: "📞 Teléfono", value: "phone"}
+              - {label: "💬 WhatsApp", value: "message-circle"}
+              - {label: "📸 Instagram", value: "instagram"}
+              - {label: "✉️ Email", value: "mail"}
+              - {label: "🔗 Enlace", value: "link"}
+              - {label: "ℹ️ Info", value: "info"}
+      - {label: "CONTIDO EXTRA (OPCIONAL)", name: "body", widget: "markdown", required: false, hint: "Se escribes algo aquí, aparecerá un botón de 'Saber máis'"}
+      - {label: "Slug (URL)", name: "slug", widget: "string", required: false, hint: "Opcional. Se se deixa baleiro, xerarase automaticamente a partir do título."}
+      - {label: "Arquivado", name: "archived", widget: "boolean", default: false, hint: "Se se marca, o obradoiro non será visible na web pero permanecerá accesible en DecapCMS."}
+
+  - name: "resources"
+    label: "Recursos"
+    folder: "content/resources"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Descrición", name: "description", widget: "text"}
+
+      - label: "Icona"
+        name: "icon"
+        widget: "select"
+        options:
+          - {label: "📄 Documento", value: "FileText"}
+          - {label: "📖 Libro/Guía", value: "BookOpen"}
+          - {label: "🎬 Vídeo", value: "Video"}
+          - {label: "📁 Cartafol", value: "FolderOpen"}
+          - {label: "🔗 Ligazón", value: "Link"}
+          - {label: "🍁 Logo/Hedra", value: "Leaf"}
+          - {label: "🍲 Receitas/Comida", value: "Soup"}
+          - {label: "🎙 Podcast/Micro", value: "Mic"}
+          - {label: "👥 Poñentes/Xente", value: "Users"}
+          - {label: "🏛️ Estatutos/Landmark", value: "Landmark"}
+          - {label: "🐷 Tesourería/PiggyBank", value: "PiggyBank"}
+          - {label: "🧮 Calculadora", value: "Calculator"}
+          - {label: "❤️ Corazón", value: "Heart"}
+          - {label: "🏠 Casa", value: "House"}
+          - {label: "📈 Gráfica/Liña", value: "ChartLine"}
+      - {label: "URL / Ficheiro Principal", name: "url", widget: "string", required: false, hint: "Pode ser unha URL externa ou o camiño a un ficheiro subido. Se engades ligazóns abaixo, esta URL ignorarase."}
+      - label: "Ligazóns Adicionais"
+        name: "links"
+        widget: "list"
+        required: false
+        fields:
+          - {label: "Texto do Botón", name: "label", widget: "string", required: false, hint: "Ex: Con texto, Sen texto. Se se deixa baleiro, porá 'Acceder'"}
+          - {label: "URL / Ficheiro", name: "url", widget: "string"}
+          - {label: "Subtexto (Opcional)", name: "subtext", widget: "string", required: false, hint: "Texto pequeno debaixo do botón"}
+      - {label: "É privado? (Só socios/as)", name: "isPrivate", widget: "boolean", default: false}
+      - {label: "Slug (URL)", name: "slug", widget: "string", required: false, hint: "Opcional. Se se deixa baleiro, xerarase automaticamente a partir do título."}
+
+  - name: "calendar"
+    label: "Calendario"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "calendar"
+        label: "Cores de Eventos"
+        file: "content/settings/calendar.json"
+        fields:
+          - label: "Cores de Eventos"
+            name: "eventColors"
+            widget: "list"
+            summary: "{{fields.title}}: {{fields.color}}"
+            fields:
+              - {label: "Texto a Buscar", name: "title", widget: "string", hint: "Palabra ou frase a buscar no título ou descrición do evento"}
+              - label: "Buscar en"
+                name: "searchIn"
+                widget: "select"
+                default: "both"
+                options:
+                  - {label: "Título e Descrición", value: "both"}
+                  - {label: "Solo Título", value: "title"}
+                  - {label: "Solo Descrición", value: "description"}
+              - label: "Tipo de Coincidencia"
+                name: "matchType"
+                widget: "select"
+                default: "contains"
+                options:
+                  - {label: "Contén (parcial)", value: "contains"}
+                  - {label: "Coincidencia Exacta", value: "exact"}
+              - {label: "Cor", name: "color", widget: "color", default: "#064e3b"}
+
+  - name: "library-composition"
+    label: "Composición da Biblioteca"
+    files:
+      - name: "library-composition"
+        label: "Composición da Biblioteca"
+        file: "content/settings/library-composition.json"
+        editor:
+          preview: false
+        fields:
+          - label: "Editor da composición"
+            name: "composition"
+            widget: "library-composition"
+            hint: "Edita só o fondo, os SVG, o tamaño, a posición e as capas do mobiliario."
+      - name: "library-shelf-mappings"
+        label: "Táboa de correspondencias"
+        file: "content/settings/library-shelf-mappings.json"
+        editor:
+          preview: false
+        fields:
+          - label: "Táboa de correspondencias"
+            name: "shelfMappings"
+            widget: "library-shelf-mappings"
+            hint: "Escribe o termo da folla e selecciona a área SVG correspondente."
+            required: false

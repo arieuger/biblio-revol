@@ -1,0 +1,11 @@
+ALTER TABLE biblioteca_libros ADD COLUMN direccion TEXT;
+ALTER TABLE biblioteca_libros ADD COLUMN producion TEXT;
+ALTER TABLE biblioteca_libros ADD COLUMN guion TEXT;
+ALTER TABLE biblioteca_libros ADD COLUMN reparto TEXT;
+ALTER TABLE biblioteca_libros ADD COLUMN musica TEXT;
+ALTER TABLE biblioteca_libros ADD COLUMN fotografia TEXT;
+ALTER TABLE biblioteca_libros ADD COLUMN soporte TEXT;
+ALTER TABLE biblioteca_libros ADD COLUMN xenero TEXT;
+ALTER TABLE biblioteca_libros ADD COLUMN duracion TEXT;
+ALTER TABLE biblioteca_libros ADD COLUMN discografica TEXT;
+ALTER TABLE biblioteca_libros ADD COLUMN estudio TEXT;

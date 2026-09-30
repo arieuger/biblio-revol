@@ -1,0 +1,35 @@
+{
+  "composition": {
+    "version": 1,
+    "background": {
+      "src": "",
+      "assetFile": "escenario-dos-paredes.svg"
+    },
+    "items": [
+      {
+        "id": "custom-1790784746738-u01zv",
+        "name": "estanteria_vacia_frontal",
+        "description": "Moble engadido: estanteria_vacia_frontal",
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgNjAwIDkwMCI+CiAgPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNWEzZDJiIiBzdHJva2Utd2lkdGg9IjE4IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIj4KICAgIDwhLS0gT3V0ZXIgZnJhbWUgLS0+CiAgICA8cmVjdCB4PSI5MCIgeT0iNjAiIHdpZHRoPSI0MjAiIGhlaWdodD0iNzgwIi8+CgogICAgPCEtLSBTaGVsdmVzIC0tPgogICAgPGxpbmUgeDE9IjkwIiB5MT0iMjUwIiB4Mj0iNTEwIiB5Mj0iMjUwIi8+CiAgICA8bGluZSB4MT0iOTAiIHkxPSI0NDAiIHgyPSI1MTAiIHkyPSI0NDAiLz4KICAgIDxsaW5lIHgxPSI5MCIgeTE9IjYzMCIgeDI9IjUxMCIgeTI9IjYzMCIvPgogIDwvZz4KPC9zdmc+Cg==",
+        "assetFile": "estanteria_vacia_frontal.svg",
+        "left": 5.743134087237481,
+        "top": 10.605970960613865,
+        "height": 76.6,
+        "aspect": 0.6666666666666666,
+        "layer": 1
+      },
+      {
+        "id": "custom-1790784797477-5b3ov",
+        "name": "estanteria_vacia_frontal",
+        "description": "Moble engadido: estanteria_vacia_frontal",
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgNjAwIDkwMCI+CiAgPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNWEzZDJiIiBzdHJva2Utd2lkdGg9IjE4IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIj4KICAgIDwhLS0gT3V0ZXIgZnJhbWUgLS0+CiAgICA8cmVjdCB4PSI5MCIgeT0iNjAiIHdpZHRoPSI0MjAiIGhlaWdodD0iNzgwIi8+CgogICAgPCEtLSBTaGVsdmVzIC0tPgogICAgPGxpbmUgeDE9IjkwIiB5MT0iMjUwIiB4Mj0iNTEwIiB5Mj0iMjUwIi8+CiAgICA8bGluZSB4MT0iOTAiIHkxPSI0NDAiIHgyPSI1MTAiIHkyPSI0NDAiLz4KICAgIDxsaW5lIHgxPSI5MCIgeTE9IjYzMCIgeDI9IjUxMCIgeTI9IjYzMCIvPgogIDwvZz4KPC9zdmc+Cg==",
+        "assetFile": "estanteria_vacia_frontal.svg",
+        "left": 22.62520193861066,
+        "top": 10.605970960613886,
+        "height": 76.6,
+        "aspect": 0.6666666666666666,
+        "layer": 2
+      }
+    ]
+  }
+}

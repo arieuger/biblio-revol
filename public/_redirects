@@ -1,0 +1,18 @@
+# Redireccións para normalizar maiúsculas/minúsculas nas rutas
+# Cloudflare Pages é case-sensitive, polo que /Blog e /blog son rutas distintas.
+# Estas redireccións aseguran que todas as variantes con maiúsculas apunten á versión en minúsculas.
+/Blog/*         /blog/:splat      301
+/Blog           /blog             301
+/Obradoiros     /obradoiros       301
+/Calendario     /calendario       301
+/Recursos       /recursos         301
+# /Biblioteca     /biblioteca       301
+/Asociate       /asociate         301
+/Contacto       /contacto         301
+/Aviso-Legal    /aviso-legal      301
+/Privacidade    /privacidade      301
+/Cookies        /cookies          301
+
+# Fallback SPA: calquera ruta non atopada serve o index.html principal
+# (necesario para o routing do lado do cliente con React/wouter)
+/*              /index.html       200
