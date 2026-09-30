@@ -1,1 +1,12 @@
-{"shelfMappings":[]}
+{
+  "shelfMappings": [
+    {
+      "spreadsheetTerm": "Historia",
+      "svgArea": "zona-295c5e1c-6924-48a6-a2f6-d7411ee5eba8"
+    },
+    {
+      "spreadsheetTerm": "Narrativa",
+      "svgArea": "zona-7fbaf4a4-7ba6-4e5c-aa4e-3d3cbcfe6b5e"
+    }
+  ]
+}

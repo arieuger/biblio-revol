@@ -66,10 +66,10 @@ export function SvgZoneEditor({ item, onSave, onClose }: { item: LibraryFurnitur
             onPointerCancel={cancelDraw}>
             <image href={item.src} x={parsed.canvas.x} y={parsed.canvas.y} width={parsed.canvas.width} height={parsed.canvas.height} pointerEvents="none" />
             {zones.map(zone => <g key={zone.id} onPointerDown={event => { if (!drawing) { event.stopPropagation(); setSelected(zone.id); } }}>
-              <rect x={zone.x} y={zone.y} width={Math.max(0, zone.width)} height={Math.max(0, zone.height)} fill={zone.id === selected ? '#c01d6340' : '#46764025'} stroke={zone.id === selected ? '#c01d63' : '#467640'} strokeWidth="2" vectorEffect="non-scaling-stroke" />
-              <text x={zone.x + 4} y={zone.y + parsed.canvas.height * .025} fontSize={parsed.canvas.height * .025} fill="#222" pointerEvents="none">{zone.name}</text>
+              <rect x={zone.x} y={zone.y} width={Math.max(0, zone.width)} height={Math.max(0, zone.height)} fill={zone.id === selected ? '#73de9e66' : '#3f44471a'} stroke={zone.id === selected ? '#277347' : '#3f4447'} strokeWidth="2" vectorEffect="non-scaling-stroke" />
+              <text x={zone.x + 4} y={zone.y + parsed.canvas.height * .025} fontSize={parsed.canvas.height * .025} fill="#3f4447" pointerEvents="none">{zone.name}</text>
             </g>)}
-            {pending && <rect {...pending} fill="#c01d6340" stroke="#c01d63" strokeWidth="2" vectorEffect="non-scaling-stroke" pointerEvents="none" />}
+            {pending && <rect {...pending} fill="#73de9e66" stroke="#277347" strokeWidth="2" vectorEffect="non-scaling-stroke" pointerEvents="none" />}
           </svg>
         </div>
         <div className="space-y-4">

@@ -33,7 +33,7 @@ export function libraryCompositionHtml(composition: LibraryComposition, relative
     const src = relativeAssets ? `assets/${assetName(item.assetFile, item.src, item.id)}` : item.src;
     return `      <img src="${escapeHtml(src)}" alt="${escapeHtml(item.description || item.name)}" style="position:absolute;left:${item.left}%;top:${item.top}%;height:${item.height}%;aspect-ratio:${item.aspect};z-index:${item.layer};filter:drop-shadow(2px 8px 5px rgba(17,22,19,.2));" />`;
   }).join("\n");
-  const backgroundStyle = background ? `background: url('${escapeHtml(background)}') center / 100% 100% no-repeat, #f2f0eb;` : "background: #f2f0eb;";
+  const backgroundStyle = background ? `background: url('${escapeHtml(background)}') center / 100% 100% no-repeat, #eef8f2;` : "background: #eef8f2;";
 
   return `<!doctype html>
 <html lang="gl">
@@ -42,7 +42,7 @@ export function libraryCompositionHtml(composition: LibraryComposition, relative
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Composición do mobiliario da Biblioteca</title>
 </head>
-<body style="margin:0;background:#ecebe7;overflow-x:auto;">
+<body style="margin:0;background:#f5fbf7;overflow-x:auto;">
   <main style="width:min(100%, 1440px);min-width:704px;margin:0 auto;padding:16px;box-sizing:border-box;">
     <section aria-label="Composición do mobiliario da Biblioteca" style="position:relative;aspect-ratio:11 / 5;overflow:hidden;${backgroundStyle}">
 ${furniture}

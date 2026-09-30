@@ -3,13 +3,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* 
-Design Philosophy: Brutalismo Digital Suavizado
-- Base neutra cálida (beige/crema) que evoca espacios comunitarios acogedores
-- Acentos en tonos tierra (terracota, verde oliva) que transmiten cercanía y sostenibilidad
-- Negro para textos principales garantizando máxima legibilidad
-- Tipografía: Outfit (display) + Inter (body)
-*/
+/* Revolteira: verde #73DE9E e gris #3F4447.
+   O gris mantén lexibles os enlaces sobre fondos claros;
+   o verde úsase como acento con texto escuro. */
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -53,56 +49,44 @@ Design Philosophy: Brutalismo Digital Suavizado
 }
 
 :root {
-  /* Verde oliva como color primario (del logotipo A NOME DA ASOCIACIÓN) */
-  --primary: oklch(0.48 0.08 125);
-  --primary-foreground: oklch(0.98 0.01 85);
-  
-  /* Terracota como acento secundario */
-  --accent: oklch(0.55 0.12 35);
-  --accent-foreground: oklch(0.98 0.01 85);
-  
-  /* Base beige cálido */
-  --background: oklch(0.95 0.015 75);
-  --foreground: oklch(0.2 0.01 65);
-  
-  /* Tarjetas con fondo ligeramente más claro */
-  --card: oklch(0.97 0.01 80);
-  --card-foreground: oklch(0.2 0.01 65);
-  
-  --popover: oklch(0.97 0.01 80);
-  --popover-foreground: oklch(0.2 0.01 65);
-  
-  /* Secundario en tono tierra claro */
-  --secondary: oklch(0.88 0.02 70);
-  --secondary-foreground: oklch(0.25 0.01 65);
-  
-  /* Muted en beige más oscuro */
-  --muted: oklch(0.85 0.02 75);
-  --muted-foreground: oklch(0.45 0.01 65);
-  
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  
-  /* Bordes sutiles en tierra */
-  --border: oklch(0.82 0.02 70);
-  --input: oklch(0.82 0.02 70);
-  --ring: oklch(0.55 0.12 35);
-  
-  --chart-1: oklch(0.55 0.12 35);
-  --chart-2: oklch(0.48 0.08 125);
-  --chart-3: oklch(0.65 0.10 45);
-  --chart-4: oklch(0.42 0.06 130);
-  --chart-5: oklch(0.72 0.08 50);
-  
-  --sidebar: oklch(0.97 0.01 80);
-  --sidebar-foreground: oklch(0.2 0.01 65);
-  --sidebar-primary: oklch(0.55 0.12 35);
-  --sidebar-primary-foreground: oklch(0.98 0.01 85);
-  --sidebar-accent: oklch(0.88 0.02 70);
-  --sidebar-accent-foreground: oklch(0.25 0.01 65);
-  --sidebar-border: oklch(0.82 0.02 70);
-  --sidebar-ring: oklch(0.55 0.12 35);
-  
+  --primary: #3f4447;
+  --primary-foreground: #ffffff;
+  --accent: #73de9e;
+  --accent-foreground: #3f4447;
+
+  --background: #f5fbf7;
+  --foreground: #3f4447;
+  --card: #ffffff;
+  --card-foreground: #3f4447;
+  --popover: #ffffff;
+  --popover-foreground: #3f4447;
+
+  --secondary: #d5f5e2;
+  --secondary-foreground: #3f4447;
+  --muted: #e8efeb;
+  --muted-foreground: #58605b;
+
+  --destructive: #b42332;
+  --destructive-foreground: #ffffff;
+  --border: #c4d2c9;
+  --input: #7d8e83;
+  --ring: #277347;
+
+  --chart-1: #277347;
+  --chart-2: #73de9e;
+  --chart-3: #3f4447;
+  --chart-4: #52956c;
+  --chart-5: #acdcbc;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #3f4447;
+  --sidebar-primary: #3f4447;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #d5f5e2;
+  --sidebar-accent-foreground: #3f4447;
+  --sidebar-border: #c4d2c9;
+  --sidebar-ring: #277347;
+
   --radius: 0.375rem;
 }
 

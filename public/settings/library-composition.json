@@ -5,6 +5,31 @@
       "src": "",
       "assetFile": "escenario-dos-paredes.svg"
     },
-    "items": []
+    "items": [
+      {
+        "id": "custom-1790784746738-u01zv",
+        "name": "estanteria_vacia_frontal",
+        "description": "Moble engadido: estanteria_vacia_frontal",
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgNjAwIDkwMCI+CiAgPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNWEzZDJiIiBzdHJva2Utd2lkdGg9IjE4IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIj4KICAgIDwhLS0gT3V0ZXIgZnJhbWUgLS0+CiAgICA8cmVjdCB4PSI5MCIgeT0iNjAiIHdpZHRoPSI0MjAiIGhlaWdodD0iNzgwIi8+CgogICAgPCEtLSBTaGVsdmVzIC0tPgogICAgPGxpbmUgeDE9IjkwIiB5MT0iMjUwIiB4Mj0iNTEwIiB5Mj0iMjUwIi8+CiAgICA8bGluZSB4MT0iOTAiIHkxPSI0NDAiIHgyPSI1MTAiIHkyPSI0NDAiLz4KICAgIDxsaW5lIHgxPSI5MCIgeTE9IjYzMCIgeDI9IjUxMCIgeTI9IjYzMCIvPgogIDwvZz4KPC9zdmc+Cg==",
+        "assetFile": "estanteria_vacia_frontal.svg",
+        "left": 31.546992608137803,
+        "top": 15.911479732805013,
+        "height": 76.6,
+        "aspect": 0.6666666666666666,
+        "layer": 1
+      },
+      {
+        "id": "custom-1790784797477-5b3ov",
+        "name": "estanteria_frontal_1",
+        "description": "Moble engadido: estanteria_vacia_frontal",
+        "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22900%22%20viewBox%3D%220%200%20600%20900%22%3E%0A%20%20%3Cg%20fill%3D%22none%22%20stroke%3D%22%235a3d2b%22%20stroke-width%3D%2218%22%20stroke-linejoin%3D%22miter%22%3E%0A%20%20%20%20%3C!--%20Outer%20frame%20--%3E%0A%20%20%20%20%3Crect%20x%3D%2290%22%20y%3D%2260%22%20width%3D%22420%22%20height%3D%22780%22%2F%3E%0A%0A%20%20%20%20%3C!--%20Shelves%20--%3E%0A%20%20%20%20%3Cline%20x1%3D%2290%22%20y1%3D%22250%22%20x2%3D%22510%22%20y2%3D%22250%22%2F%3E%0A%20%20%20%20%3Cline%20x1%3D%2290%22%20y1%3D%22440%22%20x2%3D%22510%22%20y2%3D%22440%22%2F%3E%0A%20%20%20%20%3Cline%20x1%3D%2290%22%20y1%3D%22630%22%20x2%3D%22510%22%20y2%3D%22630%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3Crect%20data-library-zone%3D%22true%22%20data-id%3D%22zona-295c5e1c-6924-48a6-a2f6-d7411ee5eba8%22%20data-label%3D%22E1-A1%22%20x%3D%22100%22%20y%3D%2270%22%20width%3D%22400%22%20height%3D%22175%22%20fill%3D%22transparent%22%20pointer-events%3D%22all%22%20tabindex%3D%220%22%20role%3D%22button%22%20aria-label%3D%22E1-A1%22%3E%3Ctitle%3EE1-A1%3C%2Ftitle%3E%3C%2Frect%3E%3Crect%20data-library-zone%3D%22true%22%20data-id%3D%22zona-7fbaf4a4-7ba6-4e5c-aa4e-3d3cbcfe6b5e%22%20data-label%3D%22E1-A2%22%20x%3D%22100%22%20y%3D%22260%22%20width%3D%22400%22%20height%3D%22175%22%20fill%3D%22transparent%22%20pointer-events%3D%22all%22%20tabindex%3D%220%22%20role%3D%22button%22%20aria-label%3D%22E1-A2%22%3E%3Ctitle%3EE1-A2%3C%2Ftitle%3E%3C%2Frect%3E%3Crect%20data-library-zone%3D%22true%22%20data-id%3D%22zona-d8ec235e-8d07-4d46-bb38-aea8eca03bdd%22%20data-label%3D%22E1-A3%22%20x%3D%22100%22%20y%3D%22450%22%20width%3D%22400%22%20height%3D%22170%22%20fill%3D%22transparent%22%20pointer-events%3D%22all%22%20tabindex%3D%220%22%20role%3D%22button%22%20aria-label%3D%22E1-A3%22%3E%3Ctitle%3EE1-A3%3C%2Ftitle%3E%3C%2Frect%3E%3Crect%20data-library-zone%3D%22true%22%20data-id%3D%22zona-4ba07df5-0a55-4044-913f-0bb9fc1c468a%22%20data-label%3D%22E1-A4%22%20x%3D%22100%22%20y%3D%22640%22%20width%3D%22400%22%20height%3D%22190%22%20fill%3D%22transparent%22%20pointer-events%3D%22all%22%20tabindex%3D%220%22%20role%3D%22button%22%20aria-label%3D%22E1-A4%22%3E%3Ctitle%3EE1-A4%3C%2Ftitle%3E%3C%2Frect%3E%3C%2Fsvg%3E",
+        "assetFile": "custom-1790784797477-5b3ov.svg",
+        "left": 14.549839228295818,
+        "top": 15.911479732805045,
+        "height": 76.6,
+        "aspect": 0.6666666666666666,
+        "layer": 2
+      }
+    ]
   }
 }

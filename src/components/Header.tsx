@@ -11,6 +11,6 @@ export default function Header() {
         <Link href="/biblioteca?modo=catalogo" aria-current={location.startsWith("/biblioteca") ? "page" : undefined}>Catálogo</Link>
       </nav>
     </div>
-    {demoMode && <p className="bg-primary text-primary-foreground text-center px-4 py-2 text-sm">Versión de demostración · Os exemplares e a dispoñibilidade son datos de exemplo.</p>}
+    {demoMode && <p className="bg-accent text-accent-foreground text-center px-4 py-2 text-sm">Versión de demostración · Os exemplares e a dispoñibilidade son datos de exemplo.</p>}
   </header>;
 }
