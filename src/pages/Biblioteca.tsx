@@ -2,7 +2,7 @@ import { withBase } from "@/lib/site-path";
 import { catalogFetch } from "@/lib/catalog-api";
 import SEO from "@/components/SEO";
 import { LibraryCompositionEditor } from "@/components/LibraryCompositionEditor";
-import { displayBookTitle, explorerShelfAreaName, splitBibliographicTags, type BibliotecaBook, type BibliotecaFilterOptions, type BibliotecaSearchResponse } from "@shared/biblioteca";
+import { displayBookTitle, splitBibliographicTags, type BibliotecaBook, type BibliotecaFilterOptions, type BibliotecaSearchResponse } from "@shared/biblioteca";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -103,8 +103,8 @@ export function shouldShowExplorerClearFilter(mode: LibraryMode, shelfCode: stri
   return mode === "explorer" && Boolean(shelfCode);
 }
 
-export function explorerShelfLabel(shelfCode: string | null, correspondences?: LibraryComposition["shelfMappings"]): string | null {
-  return shelfCode ? explorerShelfAreaName(shelfCode, correspondences) : null;
+export function explorerShelfLabel(shelfCode: string | null): string | null {
+  return shelfCode?.trim() || null;
 }
 
 export const EXPLORER_EMPTY_STATE_TEXT_CLASS = "mx-auto mt-2 max-w-md text-muted-foreground";
@@ -840,7 +840,7 @@ export default function Biblioteca() {
                 <LibraryPagination page={page} totalPages={totalPages} onPageChange={setPage} className="col-span-2 row-start-3 hidden sm:flex sm:col-span-1 sm:col-start-2 sm:row-start-1" />
                 <div className="col-span-2 hidden text-sm text-muted-foreground sm:col-span-1 sm:col-start-3 sm:row-start-1 sm:flex sm:flex-col sm:items-end sm:justify-self-end sm:text-right">
                   <div className="flex max-w-full flex-wrap justify-end gap-x-4 gap-y-0.5">
-                    {activeMode === "explorer" && explorerShelf && <p className="max-w-sm">Andel: <span className="font-semibold text-foreground">{explorerShelfLabel(explorerShelf, libraryComposition.shelfMappings)}</span></p>}
+                    {activeMode === "explorer" && explorerShelf && <p className="max-w-sm">Andel: <span className="font-semibold text-foreground">{explorerShelfLabel(explorerShelf)}</span></p>}
                     {activeMode === "catalog" && query && <p className="max-w-sm">Busca: <span className="font-semibold text-foreground">{query}</span></p>}
                     {!query && (catalogTagFilters.autorias[0] || catalogTagFilters.editoriais[0] || catalogTagFilters.coleccions[0]) && <p className="max-w-sm">Filtro: <span className="font-semibold text-foreground">{catalogTagFilters.autorias[0] || catalogTagFilters.editoriais[0] || catalogTagFilters.coleccions[0]}</span></p>}
                   </div>
